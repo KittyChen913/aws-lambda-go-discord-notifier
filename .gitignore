@@ -1,0 +1,40 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Coverage profiling files
+*.out
+*.cover
+coverage.txt
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Local project artifacts
+# These are the files we generate during the build process
+bootstrap
+function.zip
+
+# IDE/editor directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables file
+.env
+local.env
