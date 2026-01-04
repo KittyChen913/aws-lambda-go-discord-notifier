@@ -20,14 +20,14 @@ Compress-Archive -Path .\bootstrap -DestinationPath function.zip
 
 ## 功能特色
 
-- ✅ 當有新物件上傳到 S3 Bucket 時自動觸發
-- ✅ 透過 Discord Webhook 發送格式化通知
-- ✅ 訊息包含 Bucket、檔案路徑、Region、物件 URL
-- ✅ 環境變數方式管理 Webhook URL
+- 有新物件上傳到 S3 Bucket 時會自動觸發
+- 透過 Discord Webhook 發送通知
+- 訊息包含 Bucket、檔案路徑、Region、物件 URL
+- 環境變數方式管理 Webhook URL
 
 ## 環境需求
 
-- **Go:** 版本 1.20 或更高
+- **Go**
 - **AWS CLI:** 已設定 AWS 帳號存取憑證（`aws configure`）
 - **Discord Webhook URL:** 從 Discord 伺服器取得（整合 > Webhook > 新增 Webhook）
 
@@ -56,7 +56,7 @@ aws-lambda-go-discord-notifier/
 1. 前往 AWS Lambda 主控台 → 函式 → 建立函式
 2. 選擇 **從頭開始撰寫**
 3. **函式名稱**：例如 `s3-discord-notifier`
-4. **Runtime**：選擇 `Custom runtime` > `Amazon Linux 2023`
+4. **Runtime**：選擇 `Amazon Linux 2023`
 5. **架構**：選擇 `x86_64`
 6. 點擊 **建立函式**
 
@@ -77,7 +77,7 @@ aws-lambda-go-discord-notifier/
 
 1. 點擊 **Add trigger**
 2. **Trigger configuration**：選擇 **S3**
-3. **Bucket**：選擇你要監控的 S3 Bucket
+3. **Bucket**：選擇要監控的 S3 Bucket
 4. **Event types**：選擇 **All object create events**
 5. **（可選）Prefix / Suffix：**
    - Prefix：監控特定資料夾（例如 `uploads/`）
@@ -88,11 +88,11 @@ aws-lambda-go-discord-notifier/
 
 ## ✅ 測試
 
-上傳檔案到設定的 S3 Bucket，幾秒鐘後應該會在 Discord 頻道看到通知。
+上傳檔案到設定的 S3 Bucket，幾秒鐘後會在 Discord 頻道看到通知
 
 ### 查看執行日誌
 
-若無收到通知，查看日誌以排查問題：
+若無收到通知，可查看日誌確認問題：
 
 1. 前往 Lambda function 頁面
 2. **Monitor** → **Logs** → **View in CloudWatch**
