@@ -9,13 +9,10 @@
 # 1. 下載相依套件
 go mod tidy
 
-# 2. 編譯為 Linux 可執行檔（Windows PowerShell）
-$env:GOOS="linux"; $env:GOARCH="amd64"; go build -o bootstrap
+# 2. 編譯 + 打包部署檔案（Windows PowerShell）
+$env:GOOS="linux"; $env:GOARCH="amd64"; go build -o bootstrap; Compress-Archive -Path .\bootstrap -DestinationPath function.zip -Force
 
-# 3. 打包部署檔案 (function.zip)
-Compress-Archive -Path .\bootstrap -DestinationPath function.zip
-
-# 4. 上傳至 AWS Lambda 並設定環境變數 DISCORD_WEBHOOK_URL
+# 3. 上傳至 AWS Lambda 並設定環境變數 DISCORD_WEBHOOK_URL
 ```
 
 ## 功能特色
