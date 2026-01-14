@@ -1,19 +1,20 @@
 # AWS Lambda Go Discord Notifier
 
-
 這是一個用 Go 編寫的 AWS Lambda function，當有新物件上傳到 S3 Bucket 時，自動發送 Discord 通知，支援自訂 Webhook 和完整的物件資訊。
 
 ## 快速開始
 
+1. 下載相依套件
 ```bash
-# 1. 下載相依套件
 go mod tidy
-
-# 2. 編譯 + 打包部署檔案（Windows PowerShell）
-$env:GOOS="linux"; $env:GOARCH="amd64"; go build -o bootstrap; Compress-Archive -Path .\bootstrap -DestinationPath function.zip -Force
-
-# 3. 上傳至 AWS Lambda 並設定環境變數 DISCORD_WEBHOOK_URL
 ```
+
+2. 編譯 + 打包部署檔案（Windows PowerShell）
+```powershell
+$env:GOOS="linux"; $env:GOARCH="amd64"; go build -o bootstrap; Compress-Archive -Path .\bootstrap -DestinationPath function.zip -Force
+```
+
+3. 上傳至 AWS Lambda 並設定環境變數 DISCORD_WEBHOOK_URL
 
 ## 功能特色
 
@@ -46,7 +47,7 @@ aws-lambda-go-discord-notifier/
 
 ---
 
-##  部署到 AWS
+## 部署到 AWS
 
 ### 1. 建立 Lambda Function
 
@@ -94,4 +95,3 @@ aws-lambda-go-discord-notifier/
 1. 前往 Lambda function 頁面
 2. **Monitor** → **Logs** → **View in CloudWatch**
 3. 查看最新的 Log Stream
-
