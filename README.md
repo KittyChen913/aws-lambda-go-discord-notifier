@@ -2,6 +2,19 @@
 
 這是一個用 Go 編寫的 AWS Lambda function，當有新物件上傳到 S3 Bucket 時，自動發送 Discord 通知，支援自訂 Webhook 和完整的物件資訊。
 
+## 功能特色
+
+- 有新物件上傳到 S3 Bucket 時會自動觸發
+- 透過 Discord Webhook 發送通知
+- 訊息包含 Bucket、檔案路徑、Region、物件 URL
+- 環境變數方式管理 Webhook URL
+
+## 環境需求
+
+- **Go**
+- **AWS CLI:** 已設定 AWS 帳號存取憑證（`aws configure`）
+- **Discord Webhook URL:** 從 Discord 伺服器取得（整合 > Webhook > 新增 Webhook）
+
 ## 快速開始
 
 1. 下載相依套件
@@ -15,19 +28,6 @@ $env:GOOS="linux"; $env:GOARCH="amd64"; go build -o bootstrap; Compress-Archive 
 ```
 
 3. 上傳至 AWS Lambda 並設定環境變數 DISCORD_WEBHOOK_URL
-
-## 功能特色
-
-- 有新物件上傳到 S3 Bucket 時會自動觸發
-- 透過 Discord Webhook 發送通知
-- 訊息包含 Bucket、檔案路徑、Region、物件 URL
-- 環境變數方式管理 Webhook URL
-
-## 環境需求
-
-- **Go**
-- **AWS CLI:** 已設定 AWS 帳號存取憑證（`aws configure`）
-- **Discord Webhook URL:** 從 Discord 伺服器取得（整合 > Webhook > 新增 Webhook）
 
 ---
 
